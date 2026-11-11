@@ -5,13 +5,10 @@
 #include <string.h>
 #include <stdio.h>
 
-// ==========================================
-// FUNÇÕES MATEMÁTICAS (RSA)
-// ==========================================
-unsigned long long int forge_elusive_key(int n, int m) {
+unsigned long long int forge_elusive_key(int n, int m) { //funcao para gerar chave secreta
     int m0 = m; int y = 0, x = 1;
-    if (m == 1) return 0;
-    while (n > 1) {
+    if (m == 1) return 0; //caso base
+    while (n > 1) { //enquanto n>1, realizar simplificacao
         int q = n / m; int t = m;
         m = n % m; n = t; t = y;
         y = x - q * y; x = t;
